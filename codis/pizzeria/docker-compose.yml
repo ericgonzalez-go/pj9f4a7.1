@@ -1,0 +1,19 @@
+services:
+  servPizza77:
+    image: ipizza:1.1
+    container_name: contPizza77
+    ports:
+      - "18080:80"
+    networks:
+      - netPizza77
+    volumes:
+      - volPizza77:/var/www/html
+
+volumes:
+  volPizza77:
+    name: volPizza77
+
+networks:
+  netPizza77:
+    name: netPizza77
+    driver: bridge

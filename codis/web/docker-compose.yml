@@ -1,0 +1,19 @@
+services:
+  ServeiWeb:
+    image: nginx:latest
+    container_name: servidorWeb
+    ports:
+      - "8080:80"
+    networks:
+      - xarxaWeb
+    volumes:
+      - dadesWeb:/usr/share/nginx/html
+
+volumes:
+  dadesWeb:
+    name: dadesWeb
+
+networks:
+  xarxaWeb:
+    name: xarxaWeb
+    driver: bridge

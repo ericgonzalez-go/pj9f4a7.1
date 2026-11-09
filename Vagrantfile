@@ -17,6 +17,8 @@ PORT2_GUEST = 443
 PORT2_HOST = 8443
 PORT3_GUEST = 3306
 PORT3_HOST = 13306
+PORT4_GUEST = 18080
+PORT4_HOST = 18080
 PROT = "tcp"
 CARPETA_HOST = "./codis"
 CARPETA_GUEST = "/home/vagrant/codis"
@@ -41,6 +43,7 @@ Vagrant.configure("2") do |maquines|
     maquina.vm.network "forwarded_port", guest: PORT1_GUEST, host: PORT1_HOST, protocol: PROT
     maquina.vm.network "forwarded_port", guest: PORT2_GUEST, host: PORT2_HOST, protocol: PROT
     maquina.vm.network "forwarded_port", guest: PORT3_GUEST, host: PORT3_HOST, protocol: PROT
+    maquina.vm.network "forwarded_port", guest: PORT4_GUEST, host: PORT4_HOST, protocol: PROT
     maquina.vm.synced_folder CARPETA_HOST, CARPETA_GUEST
     maquina.vm.provision "shell", inline: <<-SHELL
       sudo apt-get update -y
